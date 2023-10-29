@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .box-content{
+        @apply absolute inline-block w-2/5 h-[156px] rounded-xl m-4  text-black text-center bg-white cursor-pointer
+    }
+    .img-content{
+        @apply absolute h-20 top-5 left-[43%]
+    }
+    .i-content{
+        @apply text-20 not-italic mr-1 top-3
+    }
+}
