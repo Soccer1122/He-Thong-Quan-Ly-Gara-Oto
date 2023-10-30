@@ -11,20 +11,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "technical_staff")
+@Table(name = "tbl_technical_staff")
 @Entity
-public class TechnicalStaff {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class TechnicalStaff extends User{
 
     @Column(name = "is_free")
     private boolean isFree;
-
-
-    @Column(name = "user_id")
-    private long userId;
 
     @OneToMany(mappedBy = "technicalStaff", cascade = CascadeType.ALL)
     private List<Payroll> payrollLis;

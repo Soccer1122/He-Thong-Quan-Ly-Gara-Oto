@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NavBar = (props) =>{
     const listNav = [   {name : "Trang chủ", link : "/manager/home"},
                         { name : "Nhận xe",  link :  "/manager/receive_car"     },
-                        { name : "Phân công sửa chữa", link: " "},
+                        { name : "Phân công sửa chữa", link: "/manager/assign_technicalstaff"},
                         { name : "Quản lý", link: ""},
                         {name : "Thống kê", link: ""},
                         {name: "Tính lương", link: ""}]
@@ -19,9 +19,9 @@ const NavBar = (props) =>{
                 </div>
             </Link>
             </div>
-            <div className="absolute inline-block  right-0 m-4">
-                <IoIosLogOut className="h-[40px] w-auto pb-4 mr-6 cursor-pointer"/>
-            </div>
+            <Link className="absolute inline-block  right-0 m-4" to="/">
+                    <IoIosLogOut className="h-[40px] w-auto pb-4 mr-6 cursor-pointer"/>        
+            </Link>
             </div>
             <div className="inline-block w-full bg-[#1D1B16]">
             <ul className="pl-5 text-[#FFF]">
