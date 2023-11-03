@@ -7,9 +7,9 @@ const NavBar = (props) =>{
                         { name : "Phân công sửa chữa", link: "/manager/assign_technicalstaff"},
                         { name : "Quản lý", link: ""},
                         {name : "Thống kê", link: ""},
-                        {name: "Tính lương", link: ""}]
+                        {name: "Tính lương", link: "/manager/stat_salary"}]
     return (
-        <nav className="fixed h-auto w-[100%] block items-center bg-white drop-shadow-2xl rounded-lg z-10 font-sora" >
+        <nav className="fixed top-0 h-auto w-[100%] block items-center bg-white drop-shadow-2xl z-10 font-sora" >
             <div className="w-full h-14 inline-block" >
             <div className="inline-block justify-center items-center "> 
             <Link to="/manager/home" className="h-[56px]">

@@ -106,7 +106,7 @@ const RecaiveCar = () => {
                             <ul className="max-h-[350px] overflow-y-auto">
                                 <AiOutlineClose className="ml-auto text-red-500 cursor-pointer" onClick={()=>handleClose("client")} />
                                 {listClient.map((client,index) =>
-                                    <li key={index} className="p-1 cursor-pointer hover:bg-blue-200 rounded-md" onClick={handleChoseClient}>Nguyễn Thanh Hoàng  <span className="float-right mr-3">0963847915 </span> </li>
+                                    <li key={index} className="p-1 cursor-pointer hover:bg-blue-200 rounded-md" onClick={handleChoseClient}>Nguyễn Thanh Hoàng{index}  <span className="float-right mr-3">0963847915 </span> </li>
                                 )}
                             </ul>
                         </div>
@@ -205,8 +205,8 @@ const RecaiveCar = () => {
                                     <tbody>
                                         {listClient.map((client,index) =>
                                             <tr key={index}  className="p-1 cursor-pointer hover:bg-blue-200 rounded-md w-full font-normal" onClick={handleChoseService}>
-                                                <th scope="col" className="px-6 py-3 rounded-l-lg font-light ">DV01 </th>
-                                                <th scope="col" className="px-6 py-3 font-light">Thay bánh xe sau </th>
+                                                <th scope="col" className="px-6 py-3 rounded-l-lg font-light ">DV0{index} </th>
+                                                <th scope="col" className="px-6 py-3 font-light">Thay bánh xe sau{index} </th>
                                                 <th scope="col" className="px-6 py-3 font-light rounded-r-lg text-blue-700"> {formatCurrency(500000)}</th>
                                             </tr>
                                         )}
@@ -266,8 +266,8 @@ const RecaiveCar = () => {
                                     <tbody>
                                         {listClient.map((client,index) =>
                                             <tr key={index} className="p-1 cursor-pointer hover:bg-blue-200 rounded-md w-full font-normal" onClick={handleChoseComponent}>
-                                                <th scope="col" className="px-6 py-3 rounded-l-lg font-light ">LK01 </th>
-                                                <th scope="col" className="px-6 py-3 font-light">Bánh xe </th>
+                                                <th scope="col" className="px-6 py-3 rounded-l-lg font-light ">LK0{index} </th>
+                                                <th scope="col" className="px-6 py-3 font-light">Bánh xe {index} </th>
                                                 <th scope="col" className="px-6 py-3 font-light text-blue-700"> {formatCurrency(500000)}</th>
                                                 <th scope="col" className="px-6 py-3 font-light rounded-r-lg">Tồn: 20 </th>
                                             </tr>
@@ -331,7 +331,7 @@ const RecaiveCar = () => {
                 </div>
             </div>
             <div className={`absolute h-[75%] w-[65%] grid-rows-6 grid-flow-col 
-            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${0===1 ? 'hidden':'grid' }`}>
+            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${1===1 ? 'hidden':'grid' }`}>
                 <div className="w-full row-span-1 ">
                     <AiFillCloseSquare className="inline-block h-10 w-auto float-right pt-1 pr-1 text-red-500 cursor-pointer hover:text-red-600 active:text-red-800"/>
                     <br/>
@@ -361,7 +361,7 @@ const RecaiveCar = () => {
                 </div>
             </div>
             <div className={`absolute h-[75%] w-[65%] grid-rows-6 grid-flow-col 
-            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${1===1 ? 'hidden':'grid' }`}>
+            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${0===1 ? 'hidden':'grid' }`}>
                 <div className="w-full row-span-1 ">
                     <AiFillCloseSquare className="inline-block h-10 w-auto float-right pt-1 pr-1 text-red-500 cursor-pointer hover:text-red-600 active:text-red-800"/>
                     <br/>
@@ -393,4 +393,5 @@ const RecaiveCar = () => {
         </div>
     )
 }
+
 export default RecaiveCar;

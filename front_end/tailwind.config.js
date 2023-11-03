@@ -29,6 +29,13 @@ module.exports = {
       boxShadow: {
         md: "6px 6px 16px 0 rgba(0, 0, 0, 0.25),-4px -4px 12px 0 rgba(255, 255, 255, 0.3);",
       },
+      gridTemplateRows: {
+        // Simple 8 row grid
+        '7': 'repeat(7, minmax(0, 1fr))',
+
+        // Complex site-specific row configuration
+        'layout': '200px minmax(900px, 1fr) 100px',
+      },
     },
   },
   plugins: [],
