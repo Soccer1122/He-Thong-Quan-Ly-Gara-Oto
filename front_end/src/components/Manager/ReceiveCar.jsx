@@ -10,6 +10,8 @@ const RecaiveCar = () => {
     const [showFindClient, setShowFindClient] = useState(false)
     const [showFindService, setShowFindService] = useState(false)
     const [showFindComponent, setShowFindComponent] = useState(false)
+    const [showAddClient, setShowAddClient] = useState(false)
+    const [showAddCar, setShowAddCar] = useState(false)
     const [listClient, setListClient] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 11, , 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
     const [textSearchClient, setTextSearchClient] = useState("");
     const [textSearchService, setTextSearchService] = useState("");
@@ -93,7 +95,7 @@ const RecaiveCar = () => {
     return (
         <div className="relative w-full h-[739px]">
             <NavBar location={location} />
-            <div className=" relative top-[110px] w-full h-[629px] grid grid-cols-3 gap-2 p-4 bg-gray-200  font-arial brightness-[0.6]">
+            <div className={`relative top-[110px] w-full h-[629px] grid grid-cols-3 gap-2 p-4 bg-gray-200  font-arial ${showAddClient || showAddCar ? "brightness-[0.6]":"" }`}>
                 <div className="relative bg-white rounded-md">
                     <h1 className="m-3 font-bold"> Nhân viên tiếp nhận: <span className="absolute right-3">Thanh Hoàng</span> </h1>
                     <h2 className="m-3 font-bold"> Ngày: 23/10/2023</h2>
@@ -101,7 +103,10 @@ const RecaiveCar = () => {
                     <h1 className="m-3 text-center text-3xl font-bold "> Thông tin khách hàng</h1>
                     <div className="relative">
                         <input className="ml-5 w-9/12 focus:outline-none focus:border-blue-700 focus:border-b-2 border-b border-gray-400" type="text" placeholder="Tìm khách hàng" value={textSearchClient} onChange={(e) => handleFindClient(e.target.value)} />
-                        <button className="mx-1 h-10 w-[90px] rounded-md text-white bg-blue-600 hover:bg-blue-800 active:bg-blue-900">Thêm mới</button>
+                        <button className="mx-1 h-10 w-[90px] rounded-md text-white bg-blue-600 hover:bg-blue-800 active:bg-blue-900"
+                            onClick={()=>setShowAddClient(true)}>
+                            Thêm mới
+                        </button>
                         <div className={`absolute left-6 h-auto w-11/12 p-2 bg-white drop-shadow-2xl rounded-xl z-10 ${showFindClient || 'hidden'}`}>
                             <ul className="max-h-[350px] overflow-y-auto">
                                 <AiOutlineClose className="ml-auto text-red-500 cursor-pointer" onClick={()=>handleClose("client")} />
@@ -137,7 +142,10 @@ const RecaiveCar = () => {
                 </div>
                 <div className="relative bg-white rounded-md">
                     <h1 className="text-center mt-2 font-bold text-24">Xe khách từng sửa</h1>
-                    <button className="relative m-2 px-1 left-[380px] h-[36px] rounded-md text-white bg-blue-600 hover:bg-blue-800 active:bg-blue-900">Thêm mới xe</button>
+                    <button className="relative m-2 px-1 left-[380px] h-[36px] rounded-md text-white bg-blue-600 hover:bg-blue-800 active:bg-blue-900"
+                        onClick={()=>setShowAddCar(true)}>
+                        Thêm mới xe
+                    </button>
                     <div className="relative min-h-[163px] max-h-[163px] overflow-y-auto">
                         <table className="w-full  text-sm text-left text-gray-500 dark:text-gray-400 ">
                             <thead className="text-xs text-gray-700 uppercase bg-gray-100">
@@ -331,9 +339,11 @@ const RecaiveCar = () => {
                 </div>
             </div>
             <div className={`absolute h-[75%] w-[65%] grid-rows-6 grid-flow-col 
-            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${1===1 ? 'hidden':'grid' }`}>
+            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${showAddClient ? 'grid':'hidden' }`}>
                 <div className="w-full row-span-1 ">
-                    <AiFillCloseSquare className="inline-block h-10 w-auto float-right pt-1 pr-1 text-red-500 cursor-pointer hover:text-red-600 active:text-red-800"/>
+                    <AiFillCloseSquare className="inline-block h-10 w-auto float-right pt-1 pr-1 text-red-500 cursor-pointer hover:text-red-600 active:text-red-800"
+                        onClick={()=>setShowAddClient(false)}
+                    />
                     <br/>
                     <h1 className="block text-2xl font-bold text-center m-1"> Thêm mới khách hàng</h1>
                 </div>
@@ -356,14 +366,19 @@ const RecaiveCar = () => {
                     </div>
                 </div>
                 <div className="row-span-1 ml-auto pr-12">
-                    <button className="m-5 mr-2 p-2 w-[100px] rounded-lg border text-blue-600 border-blue-600"> Bỏ qua</button>
+                    <button className="m-5 mr-2 p-2 w-[100px] rounded-lg border text-blue-600 border-blue-600"
+                            onClick={()=>setShowAddClient(false)}> 
+                            Bỏ qua
+                    </button>
                     <button className="m-5 w-[100px] p-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800"> Lưu</button>
                 </div>
             </div>
             <div className={`absolute h-[75%] w-[65%] grid-rows-6 grid-flow-col 
-            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${0===1 ? 'hidden':'grid' }`}>
+            bg-white rounded-xl translate-x-[25%] translate-y-[-90%] shadow-2xl z-10 none ${showAddCar ? 'grid':'hidden' }`}>
                 <div className="w-full row-span-1 ">
-                    <AiFillCloseSquare className="inline-block h-10 w-auto float-right pt-1 pr-1 text-red-500 cursor-pointer hover:text-red-600 active:text-red-800"/>
+                    <AiFillCloseSquare className="inline-block h-10 w-auto float-right pt-1 pr-1 text-red-500 cursor-pointer hover:text-red-600 active:text-red-800"
+                                        onClick={()=>setShowAddCar(false)}
+                    />
                     <br/>
                     <h1 className="block text-2xl font-bold text-center m-1"> Thêm mới xe của khách hàng</h1>
                 </div>
@@ -386,7 +401,10 @@ const RecaiveCar = () => {
                     </div>
                 </div>
                 <div className="row-span-1 ml-auto pr-12">
-                    <button className="m-5 mr-2 p-2 w-[100px] rounded-lg border text-blue-600 border-blue-600"> Bỏ qua</button>
+                    <button className="m-5 mr-2 p-2 w-[100px] rounded-lg border text-blue-600 border-blue-600"
+                        onClick={()=>setShowAddCar(false)}> 
+                        Bỏ qua
+                    </button>
                     <button className="m-5 w-[100px] p-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800"> Lưu</button>
                 </div>
             </div>
